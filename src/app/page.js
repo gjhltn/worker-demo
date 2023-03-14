@@ -6,7 +6,7 @@ export default function Home() {
   const workerRef = useRef()
 
   useEffect(() => {
-    workerRef.current = new Worker(new URL('../../worker.js', import.meta.url))
+    workerRef.current = new Worker(new URL('../workers/worker.js', import.meta.url))
     workerRef.current.onmessage = (event) =>
       alert(`WebWorker Response => ${event.data}`)
     return () => {
